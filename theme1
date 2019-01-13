@@ -1,0 +1,700 @@
+
+
+
+<!DOCTYPE html>
+<head>
+
+
+<title>{Title}</title>
+
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+
+<!--Default Variables-->
+
+<meta name="color:background" content="#fbfbfb"/>
+<meta name="color:text" content="#797979"/>
+<meta name="color:link" content="#797979"/>
+<meta name="color:linkhover" content="#868686"/>
+<meta name="color:scrollbar" content="#979797" />
+<meta name="color:borders" content="#f3f3f3"/>
+<meta name="color:bgs" content="#fbfbfb" />
+<meta name="color:postbg" content="#ffffff" />
+
+
+<meta name="image:sidebar" content="" />
+<meta name="if:400px" content="0"/>
+
+<meta name="text:link1" content="/" />
+<meta name="text:link1 Title" content="link" />
+<meta name="text:link2" content="/" />
+<meta name="text:link2 Title" content="link" />
+<meta name="text:link3" content="/" />
+<meta name="text:link3 Title" content="link" />
+
+
+ 
+<script>
+(function($){
+$(document).ready(function(){
+$("a[title]").style_my_tooltips({
+tip_follows_cursor:true,
+tip_delay_time:20,
+tip_fade_speed:300,
+attribute:"title"
+});
+});
+})(jQuery);
+</script>
+
+<style type="text/css">
+
+
+#s-m-t-tooltip{
+font-size:8px;
+position:absolute;
+margin-top:15px;
+letter-spacing:1px;
+font-family:pt-sans, 'trebuchet ms', sans-serif;
+text-transform:uppercase;
+z-index:9999;
+color:{color:text};
+background-color:{color:postbg};
+border:1px solid {color:borders};
+padding:3px 3px 3px 3px;
+-webkit-transition:all 0.2s;
+-moz-transition:all 0.2s;
+-ms-transition:all 0.2s;
+-o-transition:all 0.2s;
+transition:all 0.2s;
+}
+
+
+::-webkit-scrollbar{height: 5px;
+width: 5px;
+background-color:{color:background}}
+::-webkit-scrollbar-thumb{background-color:{color:scrollbar};}
+::-webkit-scrollbar-track{background-color:{color:background};}
+
+
+blockquote {
+padding-left:15px;
+margin:6px 10px 6px 5px;
+border-left:1px solid {color:borders};
+max-width:500px!important;
+{block:if400px}
+max-width:400px!important;
+{/block:if400px}
+}
+
+
+body {
+background:{color:background};
+color:{color:text};
+font-family:pt-sans, 'trebuchet ms', sans-serif;
+font-size:10px;
+text-align:justify;
+margin:0;
+line-height:15px;
+}
+
+
+a {
+text-decoration:none;
+color:{color:link};
+-moz-transition-duration:0.5s;
+-webkit-transition-duration:0.5s;
+-o-transition-duration:0.5s;
+}
+
+a:hover {
+text-decoration:none;
+color:{color:linkhover};
+-moz-transition-duration:0.5s;
+-webkit-transition-duration:0.5s;
+-o-transition-duration:0.5s;
+}
+
+
+b, strong {
+color:{color:text}}
+i, em {
+color:{color:text}}
+p {
+margin-top:5px;
+margin-bottom:5px}
+ol {
+list-style:normal;}
+ul {
+list-style:circle;}
+
+small {
+font-size:9px;}
+
+sub {
+font-size:9px;}
+
+big {
+font-size:12px;}
+
+
+
+
+#title {
+font-size:12px;
+line-height:18px;
+font-family:pt-sans, 'trebuchet ms', sans-serif;
+text-transform:uppercase;
+letter-spacing:1px;
+margin-bottom:9px;
+padding-bottom:5px;
+border-bottom:1px solid {color:borders};
+text-align:center;
+color:{color:text};
+}
+
+#title a {
+color:{color:text};
+}
+
+
+
+#side {
+position:fixed;
+top:75px;
+left:100px;
+width:230pxx;
+background-color:{color:postbg};
+padding:9px;
+}
+
+
+#sidebarimg {
+width:200px;
+}
+
+#sidebarimg img {
+width:200px;
+padding:3px;
+background-color:{color:bgs};
+}
+
+
+#navi {
+text-align:center;
+width:206px;
+margin-top:5px;
+}
+ 
+#navi a {
+display:block;
+font-family:pt-sans, 'trebuchet ms', sans-serif;
+font-size:8px;
+letter-spacing:1px;
+padding:6px 8px 6px 8px;
+border-top:1px solid {color:borders};
+color:{color:link};
+text-transform:uppercase;
+}
+ 
+#navi a:hover {
+color:{color:link};
+}
+
+#blogt {
+font-size:12px;
+line-height:13px;
+font-family:pt-sans, 'trebuchet ms', sans-serif;
+text-transform:uppercase;
+letter-spacing:1px;
+padding-bottom:5px;
+margin-bottom:5px;
+border-bottom:1px solid {color:borders};
+text-align:center;
+color:{color:text};
+}
+
+
+#description {
+color:{color:text};
+text-align:justify;
+padding:10px 10px 15px 10px;
+}
+
+
+
+#pagination {
+width:532px;
+{block:if400px}
+width:432px;
+{/block:if400px}
+text-align:center;
+font-family:arial;
+margin:50px 0;
+text-transform:uppercase;
+letter-spacing:1px;
+font-size:12px;
+}
+ 
+#pagination a {
+line-height:14px;
+background-color:{color:postbg};
+padding:0 5px;
+}
+
+
+#entries {
+margin-top:75px;
+margin-left:420px;
+width:500px;
+{block:if400px}
+width:400px;
+{/block:if400px}
+}
+
+
+
+#posts {
+width:500px;
+background-color:{color:postbg};
+padding:20px;
+{block:if400px}
+width:400px;
+{/block:if400px}
+{block:IndexPage}
+margin-bottom:75px;
+{/block:IndexPage}
+{block:PermalinkPage}
+margin-bottom:50px;
+{/block:PermalinkPage}
+}
+
+#posts img {
+max-width:500px;
+{block:if400px}
+max-width:400px;
+{/block:if400px}
+}
+
+
+#tquote {
+font-size:12px;
+line-height:16px;
+font-family:pt-sans, 'trebuchet ms', sans-serif;
+text-align:justify;
+font-style:italic;
+padding:12px 12px 12px 12px;
+color:{color:text};
+}
+
+#source {
+text-align:left;
+font-size:9px;
+padding:12px 12px 12px 12px;
+}
+
+
+
+.playbutton {
+overflow:hidden;
+position:relative;
+z-index:1000;
+width:26px;
+height:26px;
+margin:11px 11px 11px 11px;
+}
+
+.playbox {
+float:left;
+background-color:#000;
+position:absolute;
+z-index:1000;
+width:50px;
+height:50px;
+margin:10px;
+-webkit-border-radius:50px;
+-moz-border-radius:50px;
+opacity:0.2;
+-moz-transition-duration:0.6s;
+-webkit-transition-duration:0.6s;
+-o-transition-duration:0.6s;
+}
+
+.playbox:hover {
+opacity:0.9;
+-moz-transition-duration:0.6s;
+-webkit-transition-duration:0.6s;
+-o-transition-duration:0.6s;
+}
+
+.info {
+float:right;
+font-size:8px;
+text-align:left;
+{block:ifNot400px}
+width:400px;
+{/block:ifNot400px}
+{block:if400px}
+width:300px;
+{/block:if400px}
+background-color:{color:bgs};
+padding:12px;
+height:46px;
+line-height:185%;
+font-family:arial;
+letter-spacing:1px;
+font-family:pt-sans, 'trebuchet ms', sans-serif;
+text-transform:uppercase;
+}
+
+.info i {
+font-family:pt-sans, 'trebuchet ms', sans-serif;
+font-style:normal;
+font-size:8px;
+text-transform:uppercase;
+}
+
+.info b {
+font-family:pt-sans, 'trebuchet ms', sans-serif;
+font-size:8px;
+text-transform:uppercase;
+}
+
+.cover {
+position:relative;
+z-index:1;
+width:50px;
+height:50px;
+outline:10px solid {color:bgs};
+margin:10px;
+}
+
+
+
+#question {
+padding:15px;
+background-color:{color:bgs};
+border:1px solid {color:borders};
+}
+
+#answer {
+padding:2px 0px 2px 0px;
+}
+
+
+
+.chat ol {
+padding:0;
+line-height:180%;
+list-style:none;
+font-family:pt-sans, 'trebuchet ms', sans-serif;
+letter-spacing:1px;
+font-size:8px;
+text-transform:uppercase;
+}
+
+.line.odd {
+padding:5px;
+border-bottom:1px solid {color:borders};
+}
+
+.line.even {
+padding:5px;
+border-bottom:1px solid {color:borders};
+}
+
+.label {
+font-weight:bold;
+padding-right:1px;
+letter-spacing:1px;
+text-transform:uppercase;
+font-family:pt-sans, 'trebuchet ms', sans-serif;
+color:{color:text};
+font-size:8px;
+}
+
+
+
+
+#permalink {
+margin-top:2px;
+font:8px pt-sans, 'trebuchet ms', sans-serif;
+letter-spacing:1px;
+padding:5px 0px 3px 0px;
+text-align:left;
+text-transform:uppercase;
+}
+ 
+#permalink a:hover {
+color:{color:link};
+}
+ 
+ 
+.tags {
+text-align:justify;
+font-size:8px;
+font-family:pt-sans, 'trebuchet ms', sans-serif;
+letter-spacing:1px;
+padding:3px 3px 0px 0px;
+text-transform:uppercase;
+}
+ 
+.tags a {
+color:{color:link};
+margin:5px 5px 0px 0px;
+line-height:15px;
+}
+ 
+.tags a:hover {
+color:{color:linkhover};
+}
+
+
+.pagenotes {
+{block:IndexPage}
+display:none!important;
+{/block:IndexPage}
+{block:PermalinkPage}
+width:500px;
+{block:if400px}
+width:400px;
+{/block:if400px}
+background-color:{color:postbg};
+padding:20px;
+{/block:PermalinkPage}
+text-align:left;
+}
+
+.pagenotes img {
+display:none!important;
+}
+
+.pagenotes li {
+list-style-type:none;
+padding:5px 0px;
+text-align:left;
+margin:0 0 0 -40px;
+font-size:10px;
+text-transform:lowercase;
+}
+
+.t {
+font-size:12px;
+font-weight:bold;
+letter-spacing:1px;
+color:{color:text};
+text-transform:uppercase;}
+
+
+#cred {
+font-family:arial;
+font-size:9px;
+letter-spacing:1px;
+bottom:15px;
+font-style:none;
+right:20px;
+position:fixed;
+}
+
+
+
+{CustomCSS}
+
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+
+<div id="con">
+
+<div id="side">
+<div id="blogt">{Title}</div>
+
+<div id="description">{Description}</div>
+<div id="navi">
+
+{block:iflink1}<a href="{text:link1}">{text:link1 title} <span style="float:right;"><i class="fa fa-music" style="font-size:9px; color:{color:link};"></i></span></a>{/block:iflink1}
+
+{block:iflink2}<a href="{text:link2}">{text:link2 title} <span style="float:right;"><i class="fa fa-list" style="font-size:9px; color:{color:link};"></i></span></a>{/block:iflink2}
+
+{block:iflink3}<a href="{text:link3}">{text:link3 title} <span style="float:right;"><i class="fa fa-user" style="font-size:9px; color:{color:link};"></i></span></a>{/block:iflink3}
+
+{block:iflink4}<a href="{text:link4}">{text:link4 title} <span style="float:right;"><i class="fa fa-flickr" style="font-size:9px; color:{color:link};"></i></span></a>{/block:iflink4}
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+<div id="entries">
+
+{block:Posts}
+<div id="posts">
+
+
+{block:Quote}
+<div id="tquote">{Quote}</div>
+{block:Source}<div id="source">– {Source}</div>{/block:Source}
+{/block:Quote}
+
+
+
+{block:Text}
+{block:Title}
+<div id="title">{Title}</div>{/block:Title}
+{Body}
+{/block:Text}
+
+
+{block:Link}
+<div id="title"><a href="{URL}">{Name}</a></div>{block:Description}{Description}{/block:Description}
+{/block:Link}
+
+
+{block:Chat}
+{block:Title}
+<div id="title">{Title}</div>
+{/block:Title}
+<div class="chat">
+<ol>{block:Lines}
+<li class="line {Alt}">
+{block:Label}
+<span class="label">
+{Label}</span>
+{/block:Label}{Line}</li>
+{/block:Lines}
+</ol></div>
+{/block:Chat}
+
+
+{block:Photo}
+<center>
+{block:ifNot400px}
+<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+{/block:ifNot400px}
+ 
+{block:if400px}
+<img src="{PhotoURL-400}" alt="{PhotoAlt}"/>
+{/block:if400px}
+</center>
+{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+{/block:Photo}
+ 
+ 
+{block:Photoset}
+<center>
+{block:ifNot400px}
+{Photoset-500}
+{/block:ifNot400px}
+ 
+{block:if400px}
+{Photoset-400}
+{/block:if400px}
+</center>
+{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+{/block:Photoset}
+ 
+ 
+{block:Video}
+{block:ifNot400px}
+{Video-500}
+{/block:ifNot400px}
+ 
+{block:if400px}
+{Video-400}
+{/block:if400px}
+{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+{/block:Video}
+
+
+
+{block:Audio}
+{block:AudioPlayer}
+<div class="playbox"><div class="playbutton">{block:AudioPlayer}{AudioPlayerBlack}{/block:AudioPlayer}</div></div>
+{block:AlbumArt}
+<img src="{AlbumArtURL}" class="cover">
+{/block:AlbumArt}
+<div class="info">
+{block:TrackName}<i>{TrackName}</i>{/block:TrackName}<br/>
+{block:Artist}<b>Artist:</b> {Artist}{/block:Artist}<br/>
+<b>Plays:</b> {PlayCountWithLabel}
+</div>
+{/block:AudioPlayer}
+{block:Caption}<div id="caption">{Caption}</div>{/block:Caption}
+{/block:Audio}
+
+
+{block:Answer}<div id="caption">
+<div id="question"><strong>{Asker}:</strong><br> {Question}</div>
+<div id="answer">{Answer}</div></div>{/block:answer}
+
+
+{block:Date}
+<div id="permalink">
+{block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}{block:NoteCount} / <a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
+</div>
+<div class="tags">{block:Tags}<a href="{TagUrl}">#{Tag}</a>{/block:Tags}</div>{/block:Date}
+</div>
+
+
+
+{block:NoteCount}
+{block:PermalinkPage}
+{/block:PermalinkPage}
+<div class="pagenotes">
+<div class="t">notes</div>
+{PostNotes}
+</ol>
+
+
+
+</div>{/block:NoteCount}
+{/block:PostNotes}
+{/block:Posts}
+
+
+<div id="pagination">
+{block:Pagination}
+{block:PreviousPage}
+<a href="{PreviousPage}"><i class="fa fa-angle-left"></i></a>
+{/block:PreviousPage}
+ 
+ 
+{block:NextPage}
+<a href="{NextPage}"><i class="fa fa-angle-right"></i></a>
+{/block:NextPage}
+{/block:Pagination}
+</div>
+
+
+
+</div>
+
+{block:ContentSource}
+<!-- {SourceURL}{block:SourceLogo}<img src="{BlackLogoURL}"
+width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+{/block:SourceLogo}
+{block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+{/block:ContentSource}
+ 
+{block:ReblogParentUrl}
+<!-- {URL}{block:SourceLogo}<img src="{BlackLogoURL}"
+width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+{/block:SourceLogo}
+{block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+{/block:ReblogParentUrl}
+
+
+</body></html>
